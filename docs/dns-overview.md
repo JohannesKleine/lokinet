@@ -31,6 +31,6 @@ Wildard entries are currently only pointing
 
 All `.snode` domains have by default just an `A` record for initiating address mapping.
 
-Additionally both `.loki` and `.snode` can optionally provide multiple `SRV` records to advertise existence of services, on or off, of the name.
+Additionally, both `.loki` and `.snode` can optionally provide multiple `SRV` records to advertise the existence of services, on or off, of the name.
 
 <!-- (//todo: document and verify srv record limitations) -->

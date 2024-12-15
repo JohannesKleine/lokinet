@@ -29,8 +29,8 @@ All `.loki` domains by default have the following dns rr synthesized by lokinet:
 
 Wildard entries are currently only pointing
 
-All `.snode` domains have by defult just an `A` record for initiating address mapping.
+All `.snode` domains have by default just an `A` record for initiating address mapping.
 
-Additionally both `.loki` and `.snode` can optionally provide multiple `SRV` records to advertise existence of services on or off of the name.
+Additionally both `.loki` and `.snode` can optionally provide multiple `SRV` records to advertise existence of services, on or off, of the name.
 
 <!-- (//todo: document and verify srv record limitations) -->

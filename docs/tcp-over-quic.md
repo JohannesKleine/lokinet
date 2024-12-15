@@ -1,7 +1,7 @@
 # "liblokinet" TCP-over-QUIC
 
 In order for lokinet to work in an embedded version (which I will call "liblokinet" in this
-document), which lokinet cannot create TUN device (either because the host OS doesn't support them,
+document), where lokinet cannot create a TUN device (either because the host OS doesn't support them,
 or because lokinet needs to run without permissions to manage them) lokinet needs a solution for
 sending TCP data from the device to a remote lokinet client (i.e. a snapp, a snode, or another
 liblokinet client).  Since the vast majority of network connectivity relies on TCP stream
@@ -27,14 +27,14 @@ The high-level strategy of how we handle such a stream connection is to have TCP
 established only within the local device.  A liblokinet application would invoke a lokinet call to
 establish such a connection to proxy to a remote host by lokinet name and TCP port.  This would
 first establish a lokinet connection to the remote host, then open a QUIC connection over it and
-start listening for TCP connections on a local port.  When a new TCP connection is established on
+start listening for TCP connections on a the local port.  When a new TCP connection is established on
 this port lokinet will establish a new QUIC stream over the existing connection, specifying the
-destination port while initializing the stream.  (The client is free to establish as many TCP
+destination port while initializing the stream. (The client is free to establish as many TCP
 connections as it wants: each one becomes a separate QUIC stream).
 
 The situation is similar for the receiving lokinet client: it would listen for incoming QUIC
 connections on the local lokinet IP and, when establishing a QUIC stream, would establish a local
-TCP connection to the requested port on the lokinet IP.  Any incoming stream data is then forwarded
+TCP connection to the requested port on the lokinet IP. Any incoming stream data is then forwarded
 into this TCP connection, and any responses are sent back via the QUIC stream.
 
 ## Example
